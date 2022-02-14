@@ -1,3 +1,10 @@
+/**
+ * @author Henry Wilt
+ * @version 1.0
+ * Class: CS471, Hw2
+ */
+
+
 public class Question{
     private String _question = "";
     private String _answer = "";
