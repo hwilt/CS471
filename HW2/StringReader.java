@@ -5,12 +5,12 @@
  */
 
 import java.util.ArrayList;
-import java.io.File;
+import java.io.*;
+import java.util.Scanner;
 
 public class StringReader extends FormatReader{
-    private char _qaDelimiter = '';
-    private char _pairDelimiter = '';
-    private char _typeDelimiter = '';
+    private String _pairDelimiter;
+    private String _typeDelimiter;
 
     /**
      * StringReader Constructor
@@ -21,11 +21,11 @@ public class StringReader extends FormatReader{
      * @param qaDel the delimiter between the question and answer
      * @param pairDel the delimiter between the question and answer
      */
-    public StringReader(String fileName, char qaDel, char pairDel, char typeDel){
+    public StringReader(String fileName, String pairDel, String typeDel){
         super(fileName);
-        _qaDelimiter = qaDel;
         _pairDelimiter = pairDel;
         _typeDelimiter = typeDel;
+        readFile();
     }
 
     /**
@@ -34,10 +34,26 @@ public class StringReader extends FormatReader{
      *
      * @return ArrayList<Question> the array of Question objects
      */
-    public ArrayList<Question> readFile(){
-        ArrayList<Question> questions = new ArrayList<Question>();
-        File file = new File(_fileName);
-        String line = "";
-        
-        return questions;
+    public void readFile(){
+        ArrayList<Question> questions = getQuestions();
+        try{
+            File file = new File(this.getFileName());
+            Scanner sc = new Scanner(file);
+            while(sc.hasNextLine()){
+                String line = sc.nextLine();
+                String[] lineArray = line.split(_typeDelimiter);
+                String[] questionArray = lineArray[0].split(_pairDelimiter);
+                String question = questionArray[0]; // Question
+                String answer = questionArray[1];   // Answer
+                String type = lineArray[1];         // type of question
+                Question q = new Question(question, answer, type);
+                questions.add(q);                   // adds question object to array
+                //System.out.println(q.createQuestion());
+            }
+
+        } catch(FileNotFoundException e){
+            System.out.println("Error reading file");
+        }
+        this.setQuestions(questions);
+    }
 }

@@ -31,7 +31,7 @@ public class Question{
      * @return String the question
      */
     public String getQuestion(){
-        return _question;
+        return this._question;
     }
 
     /**
@@ -41,18 +41,63 @@ public class Question{
      * @return String the answer
      */
     public String getAnswer(){
-        return _answer;
+        return this._answer;
     }
 
     /**
      * getType
      * Returns the type of question
      *
-     * @return String the type of question
+     * @return int the type of question
      */
-    public String getType(){
-        return _type;
+    public int getType(){
+        int ret = -1;
+        if(_type.equals("multiplechoice")){
+            ret = 1;
+        } else if(_type.equals("truefalse")){
+            ret = 2;
+        } else if(_type.equals("fillinblank")){
+            ret = 3;
+        }
+        return ret;
     }
+
+    /**
+     * createQuestino
+     * Returns a string representation of the question
+     * 
+     * @return String the string representation of the question
+     */
+    public String createTFQuestion(){
+        String res = "";
+        res += _question + "? True or False";
+        return res;
+    }
+    /**
+     * createMPQuestion
+     * Returns a string representation of the question
+     * 
+     * @return String the string representation of the question
+     */
+
+    public String createMPQuestion(){
+        String res = "";
+        res += _question + " \nChoose the correct answer";
+        return res;
+    }
+
+    /**
+     * createOneWordQuestion
+     * Returns a string representation of the question
+     * 
+     * @return String the string representation of the question
+     */
+    public String createOneWordQuestion(){
+        String res = "";
+        res += _question + "? Please fill in the blank";
+        return res;
+    }
+
 
     /**
      * setQuestion
@@ -60,7 +105,7 @@ public class Question{
      *
      * @param question the question
      */
-    public toString(){
+    public String toString(){
         return _question + " " + _answer + " " + _type;
     }
 }

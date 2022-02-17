@@ -23,6 +23,16 @@ public class FormatReader{
         _fileName = fileName;
     }
 
+    /** 
+     * getFileName
+     * returns the file's name
+     * 
+     * @return String the file's name
+     */
+    public String getFileName(){
+        return this._fileName;
+    }
+
     /**
     * getQuestions
     * Returns the array of Question objects created by the Format Reader
@@ -30,7 +40,17 @@ public class FormatReader{
     * @return ArrayList<Question> the array of Question objects
     */
     public ArrayList<Question> getQuestions(){
-        return _Questions;
+        return this._Questions;
+    }
+
+    /**
+     * setQuestions
+     * Sets the array of Question objects created by the Format Reader
+     * 
+     * @param questions the array of Question objects
+     */
+    public void setQuestions(ArrayList<Question> questions){
+        this._Questions = questions;
     }
 
 }
