@@ -31,8 +31,6 @@ public class StringReader extends FormatReader{
     /**
      * readFile method
      * Reads the file and creates an array of Question objects
-     *
-     * @return ArrayList<Question> the array of Question objects
      */
     public void readFile(){
         ArrayList<Question> questions = getQuestions();
