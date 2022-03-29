@@ -1,20 +1,4 @@
-WordleOutcome
-Tries:4
-Win:False
-#
-SpeedRaceOutcome
-Time:3:22.99
-Place: 4
-Win: False
-PointsEarned:0
-#
-SpeedRaceOutcome
-Time:22:37.09
-Place:1
-Win:True
-PointsEarned:6
-#
-TimedGameOutcome
-Time:45:23.42
-Win:True
-#
+WordleOutcome,Tries 4,Win False
+SpeedRaceOutcome,Time 3:22.99,Place 4,Win False,PointsEarned 0
+SpeedRaceOutcome,Time 22:37.09,Place 1,Win True,PointsEarned 6
+TimedGameOutcome,Time 45:23.42,Win True
