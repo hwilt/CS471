@@ -5,21 +5,21 @@ JC = javac
 	$(JC) $(JFLAGS) $*.java
 
 CLASSES = \
-	Driver/Driver.java \
-	Metrics/Metrics.java \
-	Metrics/Outcome.java \
-	Metrics/Loser.java \
-	Metrics/Time.java \
-	Metrics/Place.java \
-	Metrics/Seed.java \
-	Metrics/Score.java \
-	Metrics/Winner.java \
-	Builder/OutcomeBuilder.java \
-	Builder/MatchBuilder.java \
-	Builder/ContestBuilder.java \
-	Builder/TournamentBuilder.java \
-	Builder/SpeedRaceBuilder.java \
-	Builder/OutcomeDirector.java
+	driver/Driver.java \
+	metrics/Metrics.java \
+	metrics/Outcome.java \
+	metrics/Loser.java \
+	metrics/Time.java \
+	metrics/Place.java \
+	metrics/Seed.java \
+	metrics/Score.java \
+	metrics/Winner.java \
+	builder/OutcomeBuilder.java \
+	builder/MatchBuilder.java \
+	builder/ContestBuilder.java \
+	builder/TournamentBuilder.java \
+	builder/SpeedRaceBuilder.java \
+	builder/OutcomeDirector.java
 
 default: classes 
 
@@ -28,8 +28,10 @@ classes: $(CLASSES:.java=.class)
 
 run:
 	@echo "Running..."
-	java Client
+	java driver/Driver
 
 clean: 
 	@echo "Cleaning..."
-	rm -f *.class
+	rm -f builder/*.class
+	rm -f metrics/*.class
+	rm -f driver/*.class
